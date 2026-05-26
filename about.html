@@ -1,12 +1,432 @@
-<h2>History of This College</h2>
-<img src="rdmenternce.jpg" alt="" srcset="">
-<p>Raja Doraisingam Government Arts College in Sivagangai, Tamil Nadu, was founded on August 11, 1947, by Raja Srimath Muthu Vijaya Regunatha Gowri Vallabha Doraisingam Shanmuga Raja to provide education to rural students. Originally private and affiliated with the University of Madras, it was taken over by the Government of Tamil Nadu in 1981 and is now affiliated with Alagappa University</p>
-<img src="rdminner.jpg" alt="" srcset="">
-<p>Founder: Established by Raja Doraisingam Shanmuga Raja in memory of his father.<br>
-Establishment: Founded on August 11, 1947, immediately following India's independence.
-<br>Transition: Became a government institution in 1981.
-<br>Location: Located on a sprawling 216.65-acre campus in Sivagangai.
-<br>Academic Evolution: The Department of History was established in June 1970. The institution offers various undergraduate and postgraduate programs in Arts, Science, and Commerce.
-<br>Accreditation: The college was accredited with a 'B+' grade (first cycle) and later 'B' grade (second cycle) by NAAC. 
-</p>
-<img src="rdmncc.jpg" alt="" srcset="">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDM College | Official Portal</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; 
+            --accent-color: #0284c7;  
+            --text-dark: #1f2937;     
+            --text-light: #ffffff;    
+            --bg-light: #f8fafc;      
+            --transition-speed: 0.25s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .main-header {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        /* Flex container keeping everything locked on a single line */
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap; /* Stops items breaking onto row two */
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .brand-logo a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 0;
+            white-space: nowrap; /* Keeps logo text in line */
+        }
+
+        /* Nav system utilizing fluid shrinking widths */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link, .dropbtn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 1.5rem 1rem; /* Reduced horizontal padding */
+            cursor: pointer;
+            white-space: nowrap; /* Stops "FOR STUDENTS" breaking apart */
+            transition: background-color var(--transition-speed);
+        }
+
+        .nav-link:hover, .dropdown:hover .dropbtn {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Desktop Dropdown Menu */
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            right: 0; /* Aligns dropdown pane to the right margin */
+            background-color: #ffffff;
+            min-width: 220px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(10px);
+            transition: all var(--transition-speed);
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 0.85rem 1.25rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            transition: background-color var(--transition-speed);
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f5f9;
+            color: var(--accent-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .fa-chevron-down {
+            font-size: 0.75rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .dropdown:hover .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Dynamic resizing rules for medium/small screens */
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0 0.75rem;
+            }
+            .brand-logo a {
+                font-size: 1.1rem; /* Slightly smaller text for balance */
+            }
+            .nav-link, .dropbtn {
+                padding: 1.5rem 0.6rem; /* Shrinks spatial footprint dynamically */
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Final fail-safe styling rule for tiny smartphone viewports */
+        @media (max-width: 480px) {
+            .brand-logo a span {
+                display: none; /* Hides just the text "COLLEGE" on tiny viewports, keeps icon + "RDM" */
+            }
+            .nav-link, .dropbtn {
+                padding: 1.5rem 0.4rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="navbar-container">
+        <div class="brand-logo">
+            <a href="index.html">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                RDM <span>COLLEGE</span>
+            </a>
+        </div>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">CONTACT</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <button class="dropbtn">
+                        FOR STUDENTS
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="feesstruct.html">
+                            <i class="fa-solid fa-credit-card"></i> Fees Structure
+                        </a>
+                        <a href="admissions.html">
+                            <i class="fa-solid fa-file-signature"></i> Admissions 2026
+                        </a>
+                        <a href="portal.html">
+                            <i class="fa-solid fa-user-graduate"></i> Student Portal
+                        </a>
+                    </div>
+                </li> 
+            </ul>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>
+<!-- Add this to the <head> section if not already present -->
+<!-- <link rel="stylesheet" href="https://cloudflare.com"> -->
+
+<style>
+    :root {
+        --primary-color: #1e3a8a;
+        --accent-color: #0284c7;
+        --text-dark: #1f2937;
+        --text-muted: #4b5563;
+        --bg-card: #ffffff;
+        --radius-md: 12px;
+        --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .history-section {
+        max-width: 1100px;
+        margin: 4rem auto;
+        padding: 0 1.5rem;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 3.5rem;
+        position: relative;
+    }
+
+    /* Subline divider under title */
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--accent-color);
+        margin: 0.75rem auto 0;
+        border-radius: 2px;
+    }
+
+    /* Alternating Content Row Design */
+    .history-row {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    .history-row.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .history-text {
+        flex: 1;
+    }
+
+    .history-text p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: var(--text-muted);
+    }
+
+    .history-image-wrapper {
+        flex: 1;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.3s ease;
+    }
+
+    .history-image-wrapper:hover {
+        transform: translateY(-5px);
+    }
+
+    .history-image-wrapper img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Key Facts Card Layout */
+    .facts-card {
+        background-color: var(--bg-card);
+        border-left: 4px solid var(--primary-color);
+        padding: 2.5rem;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .facts-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .facts-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+    }
+
+    .facts-item strong {
+        color: var(--primary-color);
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .facts-item i {
+        color: var(--accent-color);
+        margin-top: 0.25rem;
+        font-size: 1.1rem;
+    }
+
+    /* Bottom Image Gallery Row */
+    .gallery-row {
+        margin-top: 4rem;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 900px) {
+        .history-row, .history-row.reverse {
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .history-image-wrapper {
+            width: 100%;
+        }
+
+        .history-image-wrapper img {
+            height: 280px;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+</style>
+
+<main class="history-section">
+    <h2 class="section-title">History of This College</h2>
+
+    <!-- Block 1: Main Introduction -->
+    <div class="history-row">
+        <div class="history-text">
+            <p>
+                Raja Doraisingam Government Arts College in Sivagangai, Tamil Nadu, was founded on August 11, 1947, by Raja Srimath Muthu Vijaya Regunatha Gowri Vallabha Doraisingam Shanmuga Raja to provide education to rural students. Originally private and affiliated with the University of Madras, it was taken over by the Government of Tamil Nadu in 1981 and is now affiliated with Alagappa University.
+            </p>
+        </div>
+        <div class="history-image-wrapper">
+            <img src="rdmenternce.jpg" alt="RDM College Main Entrance Gate">
+        </div>
+    </div>
+
+    <!-- Block 2: Key Facts (Alternating Layout) -->
+    <div class="history-row reverse">
+        <div class="history-text">
+            <div class="facts-card">
+                <ul class="facts-list">
+                    <li class="facts-item">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span><strong>Founder:</strong> Established by Raja Doraisingam Shanmuga Raja in memory of his father.</span>
+                    </li>
+                    <li class="facts-item">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span><strong>Establishment:</strong> Founded on August 11, 1947, immediately following India's independence.</span>
+                    </li>
+                    <li class="facts-item">
+                        <i class="fa-solid fa-building-shield"></i>
+                        <span><strong>Transition:</strong> Became a government institution in 1981.</span>
+                    </li>
+                    <li class="facts-item">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span><strong>Location:</strong> Located on a sprawling 216.65-acre campus in Sivagangai.</span>
+                    </li>
+                    <li class="facts-item">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <span><strong>Academic Evolution:</strong> The Department of History was established in June 1970. The institution offers various undergraduate and postgraduate programs in Arts, Science, and Commerce.</span>
+                    </li>
+                    <li class="facts-item">
+                        <i class="fa-solid fa-award"></i>
+                        <span><strong>Accreditation:</strong> The college was accredited with a 'B+' grade (first cycle) and later 'B' grade (second cycle) by NAAC.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="history-image-wrapper">
+            <img src="rdminner.jpg" alt="RDM College Inner Campus Premises">
+        </div>
+    </div>
+
+    <!-- Block 3: Campus Life / NCC Section -->
+    <div class="history-row">
+        <div class="history-text">
+            <p>
+                The college fosters comprehensive character-building alongside academics. Through active bodies like the National Cadet Corps (NCC), students cultivate leadership, disciplined living, and patriotic ideals, serving as a pillar of community engagement within the region.
+            </p>
+        </div>
+        <div class="history-image-wrapper">
+            <img src="rdmncc.jpg" alt="RDM College NCC Cadets Block">
+        </div>
+    </div>
+</main>

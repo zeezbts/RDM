@@ -1,79 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RDM COLLEGE</title>
-</head>
-<body>
-<style>
-    .navbar {
-  overflow: hidden;
-  background-color: blue;
+    <title>RDM College | Official Portal</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2 family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; 
+            --accent-color: #0284c7;  
+            --text-dark: #0f172a;     
+            --text-light: #ffffff;    
+            --bg-light: #f8fafc;      
+            --transition-speed: 0.25s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* NAVIGATION BAR */
+        .main-header {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .brand-logo a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 0;
+            white-space: nowrap;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link, .dropbtn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color var(--transition-speed);
+        }
+
+        .nav-link:hover, .dropdown:hover .dropbtn {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #ffffff;
+            min-width: 220px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(10px);
+            transition: all var(--transition-speed);
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 0.85rem 1.25rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            transition: background-color var(--transition-speed);
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f5f9;
+            color: var(--accent-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .fa-chevron-down {
+            font-size: 0.75rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .dropdown:hover .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* HERO BANNER SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: var(--text-light);
+            padding: 7rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.15) 0%, transparent 80%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle-top {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .college-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-meta-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .meta-tag {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .meta-tag.accreditation {
+            background-color: #eab308;
+            border-color: #fde047;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-light);
+        }
+/* ==========================================================================
+   DYNAMIC RESPONSIVE BREAKPOINTS (No Hamburger Menus - Fixed Dropdown)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 0.75rem;
+    }
+    
+    .brand-logo a {
+        font-size: 1.1rem;
+    }
+    
+    /* Adjusted navigation layout for small rows */
+    .nav-menu {
+        gap: 0.25rem;
+    }
+
+    .nav-link, .dropbtn {
+        padding: 1rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    /* FIX: Converts absolute dropdown into an inline, visible block on mobile */
+    .nav-item.dropdown:hover .dropdown-content,
+    .dropdown-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        min-width: 180px;
+        transform: none !important;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-content a {
+        color: #0f172a !important; /* Forces dark contrast on light popup panel */
+        padding: 0.75rem 1rem;
+    }
+
+    /* Hero Layout Section Fixes */
+    .hero-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .college-title {
+        font-size: 1.85rem;
+    }
+    
+    .info-meta-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .meta-tag {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
+
+@media (max-width: 480px) {
+    .brand-logo a span {
+        display: none; /* Safely drops the word "COLLEGE" on tiny phones to make space */
+    }
+    
+    /* Compact rules for very narrow viewports */
+    .nav-link, .dropbtn {
+        padding: 1rem 0.35rem;
+        font-size: 0.78rem;
+    }
+
+    /* Smoothly handles dropdown layering on ultra-small mobile displays */
+    .dropdown-content {
+        position: fixed; /* Switches to a standard overlay card on tiny screens */
+        top: auto;
+        right: 10px;
+        left: 10px;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
 }
 </style>
-<div class="navbar">
-  <a href="home.html">HOME</a>
-  <a href="about.html">ABOUT US</a>
-  <a href="contact.html">CONTACT</a>
-  <div class="dropdown">
-    <button class="dropbtn">FOR STUDENTS
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="feesstruct.html">Fees structure</a>
-      <a href=""></a>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="navbar-container">
+        
+        
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>              
+                <li class="nav-item"><a class="nav-link" href="feesstruct.html"> Fees Structure</a></li>
+            </ul>
+        </nav>
+        </div>
+<section class="hero-section">
+    <div class="hero-container">
+        <!-- 1. Welcome Subtitle -->
+        <span class="hero-subtitle-top">Welcome to the Official Portal</span>
+        
+        <!-- 2. Main College Title -->
+        <h1 class="college-title">RAJA DORAISINGAM GOVERNMENT ARTS COLLEGE</h1>
+        
+        <!-- 3. Meta Data Tags -->
+        <div class="info-meta-container">
+            <div class="meta-tag">
+                <i class="fa-solid fa-building-columns"></i>
+                Affiliated to Alagappa University, Karaikudi
+            </div>
+            <div class="meta-tag">
+                <i class="fa-solid fa-location-dot"></i>
+                Sivaganga - 630 561, Tamil Nadu
+            </div>
+            <div class="meta-tag accreditation">
+                <i class="fa-solid fa-award"></i>
+                Accredited with 'B' Grade by NAAC
+            </div>
+        </div>
+
+        <!-- 4. Action Buttons -->
+        <div class="hero-cta-group">
+            <a href="admissions.html" class="btn btn-primary">
+                Admissions 2026 <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="about.html" class="btn btn-secondary">Explore History</a>
+        </div>
     </div>
-  </div> 
-</div>
-</div>
-</body>
-</html>
+</section>

@@ -1,1 +1,295 @@
-<H1>ABOUT FEES STRUCTURE</h1>
+<style>/* ==========================================================================
+   Fees Structure Section Stylesheet
+   ========================================================================== */
+
+/* Main Section Wrapper */
+.fees-portal-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+}
+
+/* Page Title Styling */
+.page-title-main {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e3a8a; /* Deep Academic Blue */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+/* Tamil Nadu Government Institution Status Badge */
+.institution-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f0fdf4; /* Soft Light Green */
+    border: 1px solid #bbf7d0;
+    color: #15803d; /* Emerald Green */
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Welfare Policy Free Tuition Banner Box */
+.welfare-policy-banner {
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.welfare-policy-banner i {
+    font-size: 2.5rem;
+    color: #bbf7d0;
+}
+
+.welfare-policy-text h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.welfare-policy-text p {
+    font-size: 0.95rem;
+    color: #f0fdf4;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* Academic Tables White Display Blocks */
+.academic-table-block {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.academic-table-block h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Financial Data Tables Design System */
+.portal-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.portal-data-table th {
+    background-color: #f1f5f9; /* Slate Gray Header Background */
+    color: #1f2937;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: 0.95rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.portal-data-table td {
+    padding: 1rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+/* Row Hover Interaction Effect */
+.portal-data-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Data Right Alignment Metrics */
+.align-column-right {
+    text-align: right;
+}
+
+.numeric-amount-value {
+    font-weight: 600;
+    color: #0f172a;
+    text-align: right;
+}
+
+/* Free Tuition Wording Callout Highlights */
+.status-amount-free {
+    color: #15803d;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
+/* Total Result Rows Highlights */
+.summary-highlight-row {
+    background-color: #f8fafc;
+    font-weight: 700;
+}
+
+.summary-highlight-row td {
+    color: #1e3a8a !important;
+    font-weight: 700;
+    border-bottom: none;
+}
+
+/* Concession & Scholarships Disclaimer Notification Footer Box */
+.welfare-concession-note {
+    background-color: #fff9db; /* Soft Warm Warning Yellow */
+    border-left: 4px solid #fab005;
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: #664d03;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.welfare-concession-note i {
+    color: #e28743;
+    margin-top: 0.2rem;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Responsive Viewports Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    .fees-portal-container {
+        margin: 2rem auto;
+    }
+    
+    .page-title-main {
+        font-size: 1.75rem;
+    }
+
+    .welfare-policy-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        padding: 1.25rem;
+    }
+
+    /* Enables flawless touch sweeping for tables without clipping the layout */
+    .academic-table-block {
+        padding: 1.25rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .portal-data-table {
+        min-width: 500px; /* Prevents text crushing on narrow smartphone grids */
+    }
+}
+</style>
+
+<!-- Fees Structure Section Content Container -->
+<div class="fees-portal-container">
+    
+    <h1 class="page-title-main">Fees Structure</h1>
+    
+    <div class="institution-status-badge">
+        <i class="fa-solid fa-gopuram"></i> Government of Tamil Nadu Institution
+    </div>
+
+    <!-- Welfare Directive Message Alert Box -->
+    <div class="welfare-policy-banner">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="welfare-policy-text">
+            <h3>Tuition Fees Waived</h3>
+            <p>As per Tamil Nadu Government welfare directives, no tuition fees are charged for Undergraduate (UG) Arts & Science programs.</p>
+        </div>
+    </div>
+
+    <!-- Section 1: Undergraduate Data Grid Layout -->
+    <div class="academic-table-block">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Undergraduate Programs (B.A. / B.Sc. / B.Com)</h2>
+        <table class="portal-data-table">
+            <thead>
+                <tr>
+                    <th>Fee Component Descriptions</th>
+                    <th class="align-column-right">Amount per Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tuition Fees</td>
+                    <td class="status-amount-free">Nil (Free)</td>
+                </tr>
+                <tr>
+                    <td>Admission Fees</td>
+                    <td class="numeric-amount-value">₹50</td>
+                </tr>
+                <tr>
+                    <td>Special Fees (Library, Games, Stationery)</td>
+                    <td class="numeric-amount-value">₹250</td>
+                </tr>
+                <tr>
+                    <td>University Affiliation & Registration Fees</td>
+                    <td class="numeric-amount-value">₹350</td>
+                </tr>
+                <tr>
+                    <td>Caution Deposit (Refundable)</td>
+                    <td class="numeric-amount-value">₹100</td>
+                </tr>
+                <tr class="summary-highlight-row">
+                    <td>Approximate Total (First Year Admission)</td>
+                    <td class="numeric-amount-value">₹750</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 2: Postgraduate Data Grid Layout -->
+    <div class="academic-table-block">
+        <h2><i class="fa-solid fa-user-graduate"></i> Postgraduate Programs (M.A. / M.Sc. / M.Com)</h2>
+        <table class="portal-data-table">
+            <thead>
+                <tr>
+                    <th>Fee Component Descriptions</th>
+                    <th class="align-column-right">Amount per Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tuition Fees (Per Semester)</td>
+                    <td class="numeric-amount-value">₹500</td>
+                </tr>
+                <tr>
+                    <td>Special Fees & Laboratory Charges</td>
+                    <td class="numeric-amount-value">₹400</td>
+                </tr>
+                <tr>
+                    <td>University Exam Fees</td>
+                    <td class="numeric-amount-value">As Actuals</td>
+                </tr>
+                <tr class="summary-highlight-row">
+                    <td>Approximate Total (Per Annum)</td>
+                    <td class="numeric-amount-value">₹1,400</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scholarship Notice Legal Disclaimer Footer Box -->
+    <div class="welfare-concession-note">
+        <i class="fa-solid fa-circle-info"></i> 
+        <strong>Note:</strong> SC/ST/SCC and OBC rural students are eligible for complete post-matric government scholarships and hostel fee concessions according to Tamil Nadu state welfare regulations.
+    </div>
+
+</div>
